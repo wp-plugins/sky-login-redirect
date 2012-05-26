@@ -14,8 +14,6 @@ Redirects users to the page they were reading just before logging in.
 Sky Login Redirect redirects users to the page they were reading just before logging in.
 In case that page is not defined, users are redirected to the homepage.
 
-Tout simple, aucune configuration n’est nécessaire, il suffit de l’activer.
-
 No configuration necessary. Everything works under the hood. Simply activate the plugin.
 
 More information can be found on [the plugin home page](http://www.skyminds.net/wordpress-plugins/sky-login-redirect/ "Sky Login Redirect Homepage").
