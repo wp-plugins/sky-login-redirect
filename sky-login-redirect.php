@@ -3,50 +3,54 @@
 Plugin Name: Sky Login Redirect
 Plugin URI: http://www.skyminds.net/wordpress-plugins/sky-login-redirect/
 Description: Redirects users to the page they were reading just before logging in.
-Version: 1.2
+Version: 1.3
 Author: Matt
 Author URI: http://www.skyminds.net/
 License: GPLv2 or later
 */
 function sky_login_redirect() {
-	$sky_site_url = home_url();
-	$sky_referer  = $_SERVER['HTTP_REFERER'];
+
 	$redirect_to  = $_REQUEST['redirect_to'];
 
-	/* check if $redirect_to is set, not empty and belongs to our home URL */
-	if( isset( $redirect_to ) && !empty( $redirect_to ) && strpos( $redirect_to, $sky_site_url ) ) {
-		/* yes it is, use $redirect_to */
-		return $redirect_to;
-	}
-
-	/* else check if referer belongs to our home URL */
-	elseif( strpos( $sky_referer, $sky_site_url ) ){
-		/* Smooth transparent redirects to the referring page */
-		return $sky_referer;
-	}
-
-	/* it doesn't, let's redirect users to our homepage */
-	else{
-		return $sky_site_url;
+	if( sky_is_login_page() ){
+		/*
+		if a login page calls itself in $redirect_to, avoid the loop and redirect to the homepage.
+		this would happen when using : password recovery and registration links.
+		 */
+		if (preg_match("/wp-login.php/", $redirect_to)){
+			$redirect_to = home_url('/');
+			return $redirect_to;
+		}
+		/* $redirect_to is empty ie the login page was called directly. Redirect to the homepage. */
+		elseif (empty($redirect_to)){
+			$redirect_to = home_url('/');
+			return $redirect_to;
+		}
+		/* for every other page, redirect to whatever $redirect_to was set to. */
+		else{
+			return $redirect_to;
+		}
 	}
 }
 
-function sky_login_url( $force_reauth, $redirect ) {
-	
-	/* define our login URL */	
-	$login_url = home_url('/wp-login.php');
-	
-	/* if $redirect is set, append it as argument to the login URL */
-	if ( !empty( $redirect ) ) {
-		$login_url = add_query_arg( 'redirect_to', urlencode( $redirect ), $login_url );
-	}
-	
-	/* if reauth is set, append it to the login URL as well */
-	if ( $force_reauth ) {
-		$login_url = add_query_arg( 'reauth', '1', $login_url ) ;
-	}
+function sky_login_url( $login_url ) {
 
-	return $login_url ;
+	/* define our login URL, using standard login URL */	
+	$login_url = site_url('wp-login.php');
+	
+	/* if $redirect_to is already set, we're good, nothing to do. */
+	if( preg_match("/redirect_to=/", $login_url) ) {
+		return $login_url;
+	}
+	/* otherwise, let's add the requested page as argument. */
+	else {
+		$login_url = add_query_arg( 'redirect_to', urlencode( (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ), $login_url );
+		return $login_url;
+	}
+}
+
+function sky_is_login_page() {
+	return in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'));
 }
 
 add_filter('login_redirect', 'sky_login_redirect');
