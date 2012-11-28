@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, redirect, redirection, sky login redirect
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.4
+Stable tag: 1.4.1
 License: GPLv2 or later
 
 Redirects users to the page they were reading just before logging in.
