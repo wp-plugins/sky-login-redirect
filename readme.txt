@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, redirect, redirection, sky login redirect
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 
 Redirects users to the page they were reading just before logging in.
@@ -28,10 +28,13 @@ None. It works under the hood.
 
 == Changelog ==
 
+= 1.4 =
+* New check : attempt to redirect to the referring page even if $redirect_to wasn't explicitly set.
+
 = 1.3 =
 
 * Fixed a regression (thanks Sharonq for reporting).
-* Plugin partially rewritten. All redirection scenarios should be covered.
+* Plugin partially rewritten.
 * New check with is_ssl().
 
 = 1.2 =
@@ -47,5 +50,5 @@ None. It works under the hood.
 
 == Upgrade Notice ==
 
-= 1.3 =
-Fixed regression bug redirecting to homepage.
+= 1.4 =
+Attempt to redirect to the referring page even if $redirect_to wasn't explicitly set.

@@ -3,28 +3,43 @@
 Plugin Name: Sky Login Redirect
 Plugin URI: http://www.skyminds.net/wordpress-plugins/sky-login-redirect/
 Description: Redirects users to the page they were reading just before logging in.
-Version: 1.3
+Version: 1.4
 Author: Matt
 Author URI: http://www.skyminds.net/
 License: GPLv2 or later
 */
+
 function sky_login_redirect() {
 
 	$redirect_to  = $_REQUEST['redirect_to'];
+	$sky_referrer = $_SERVER['HTTP_REFERER'];
 
 	if( sky_is_login_page() ){
 		/*
-		if a login page calls itself in $redirect_to, avoid the loop and redirect to the homepage.
-		this would happen when using : password recovery and registration links.
+		If the login page calls itself in $redirect_to, avoid the loop and redirect to the homepage.
+		This would happen when using password recovery and registration links.
 		 */
-		if (preg_match("/wp-login.php/", $redirect_to)){
+		if ( preg_match( "/wp-login.php/", $redirect_to ) ){
 			$redirect_to = home_url('/');
 			return $redirect_to;
 		}
-		/* $redirect_to is empty ie the login page was called directly. Redirect to the homepage. */
-		elseif (empty($redirect_to)){
-			$redirect_to = home_url('/');
-			return $redirect_to;
+		/* 
+		$redirect_to is empty i.e. the login page was called directly.
+		*/
+		elseif ( !isset( $redirect_to ) || empty( $redirect_to ) ){
+			/*
+			If home_url() is contained in the referrer, redirect to the referring page.
+			*/
+			if( strpos( $sky_referrer, home_url() ) ){
+				return $sky_referrer;
+			}
+			/*
+			it isn't, redirect to the homepage.
+			*/
+			else{
+				$redirect_to = home_url('/');
+				return $redirect_to;
+			}
 		}
 		/* for every other page, redirect to whatever $redirect_to was set to. */
 		else{
