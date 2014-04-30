@@ -1,7 +1,7 @@
 === Sky Login Redirect ===
 Contributors: skyminds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DNSC3NVBWR66L
-Tags: login, redirect, redirection, sky login redirect
+Tags: login, logout, redirect, redirection, sky login redirect
 Requires at least: 3.0
 Tested up to: 3.9
 Stable tag: 1.5
