@@ -3,16 +3,18 @@ Contributors: skyminds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DNSC3NVBWR66L
 Tags: login, redirect, redirection, sky login redirect
 Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 1.4.1
+Tested up to: 3.9
+Stable tag: 1.5
 License: GPLv2 or later
 
-Redirects users to the page they were reading just before logging in.
+Redirects to the page you were reading just before logging in. Redirects to the homepage when you log out.
 
 == Description ==
 
 Sky Login Redirect redirects users to the page they were reading just before logging in.
 In case that page is not defined, users are redirected to the homepage.
+
+It also redirects user back to the homepage when they log out, instead of going to the login page again.
 
 No configuration necessary. Everything works under the hood. Simply activate the plugin.
 
@@ -28,7 +30,17 @@ None. It works under the hood.
 
 == Changelog ==
 
-= 1.4 =
+= 1.5 =
+* May 30th 2014
+* Added : links to the login page are now cleaner (no args in URI, except for admin pages).
+* Added : new function so that logging out sends you back to the homepage.
+* Added : more inline documentation.
+* Added : plugin banner.
+* Changed : refactored and cleaned up code.
+* Changed : reference to wp-register.php changed to wp-signup.php
+* Confirmed compatibility with WordPress 3.9
+
+= 1.4.1 =
 * New check : attempt to redirect to the referring page even if $redirect_to wasn't explicitly set.
 
 = 1.3 =
@@ -50,5 +62,5 @@ None. It works under the hood.
 
 == Upgrade Notice ==
 
-= 1.4 =
-Attempt to redirect to the referring page even if $redirect_to wasn't explicitly set.
+= 1.5 =
+Leaner and cleaner version. New features : now redirects to the homepage when you log out and login URI are without arguments, except for the admin pages.
