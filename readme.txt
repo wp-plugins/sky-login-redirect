@@ -3,8 +3,8 @@ Contributors: skyminds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DNSC3NVBWR66L
 Tags: login, logout, redirect, redirection, sky login redirect
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 1.5
+Tested up to: 9.9
+Stable tag: 1.6
 License: GPLv2 or later
 
 Redirects to the page you were reading just before logging in. Redirects to the homepage when you log out.
@@ -18,17 +18,18 @@ It also redirects user back to the homepage when they log out, instead of going 
 
 No configuration necessary. Everything works under the hood. Simply activate the plugin.
 
-More information can be found on [the plugin home page](http://www.skyminds.net/wordpress-plugins/sky-login-redirect/ "Sky Login Redirect Homepage").
+More information can be found on [Sky Login Redirect Homepage](http://www.skyminds.net/wordpress-plugins/sky-login-redirect/ "Sky Login Redirect Homepage").
 
 == Installation ==
 
-Install and activate the plugin. You're done. No configuration necessary.
-
-== Screenshots ==
-
-None. It works under the hood.
+Install and activate the plugin. You're done. No configuration necessary, it works under the hood.
 
 == Changelog ==
+
+= 1.6 =
+* December 22nd 2014
+* Added : plugin logo.
+* Confirmed compatibility with WordPress 4.1
 
 = 1.5 =
 * May 30th 2014
@@ -44,7 +45,6 @@ None. It works under the hood.
 * New check : attempt to redirect to the referring page even if $redirect_to wasn't explicitly set.
 
 = 1.3 =
-
 * Fixed a regression (thanks Sharonq for reporting).
 * Plugin partially rewritten.
 * New check with is_ssl().
