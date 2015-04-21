@@ -3,7 +3,7 @@
 Plugin Name: Sky Login Redirect
 Plugin URI: http://www.skyminds.net/wordpress-plugins/sky-login-redirect/
 Description: Redirects users to the page they were reading just before logging in. Also redirects to homepage when logging out.
-Version: 1.6
+Version: 1.7
 Author: Matt Biscay
 Author URI: http://www.skyminds.net/
 License: GPLv2 or later
@@ -57,7 +57,7 @@ function sky_login_url( $login_url ) {
 	
 	/* If we are attempting to access any page on /wp-admin/, explicitly set the redirection. */
 	if (preg_match("/wp-admin/", $_SERVER['REQUEST_URI']) ) {
-		$login_url = add_query_arg( 'redirect_to', urlencode( (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ), $login_url );
+		$login_url = esc_url( add_query_arg( 'redirect_to', urlencode( (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ), $login_url ) );
 		return $login_url;
 	}
 	/* Otherwise, just go through with clean URI. */

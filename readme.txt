@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, logout, redirect, redirection, sky login redirect
 Requires at least: 3.0
 Tested up to: 9.9
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 
 Redirects to the page you were reading just before logging in. Redirects to the homepage when you log out.
@@ -25,6 +25,12 @@ More information can be found on [Sky Login Redirect Homepage](http://www.skymin
 Install and activate the plugin. You're done. No configuration necessary, it works under the hood.
 
 == Changelog ==
+
+= 1.7 =
+* April 21st 2015
+* Added: use of esc_url() to sanitize the output of add_query_arg() and improve security.
+* Added: additional logo sizes.
+* Confirmed compatibility with WordPress 4.2
 
 = 1.6 =
 * December 22nd 2014
@@ -61,6 +67,9 @@ Install and activate the plugin. You're done. No configuration necessary, it wor
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.7 =
+Security release: use of esc_url() to sanitize the output of add_query_arg().
 
 = 1.5 =
 Leaner and cleaner version. New features : now redirects to the homepage when you log out and login URI are without arguments, except for the admin pages.
