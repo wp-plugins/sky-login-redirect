@@ -3,7 +3,7 @@
 Plugin Name: Sky Login Redirect
 Plugin URI: http://www.skyminds.net/wordpress-plugins/sky-login-redirect/
 Description: Redirects users to the page they were reading just before logging in. Also redirects to homepage when logging out.
-Version: 1.8
+Version: 1.9
 Author: Matt Biscay
 Author URI: http://www.skyminds.net/
 License: GPLv2 or later
@@ -17,7 +17,7 @@ function sky_is_login_page() {
 /* Login redirect to the page we were reading prior to log in. */
 function sky_login_redirect() {
 
-	$redirect_to  = esc_url( $_REQUEST['redirect_to'] );
+	$redirect_to  = (isset( $_REQUEST['redirect_to'] ) ? esc_url( $_REQUEST['redirect_to'] ): NULL );
 
 	/* if this is a login page... */
 	if( sky_is_login_page() ){
@@ -33,7 +33,7 @@ function sky_login_redirect() {
 			$referrer = wp_get_referer();
 
 			/* If the referrer is empty, go back to homepage. */
-			if( empty($referrer)) {
+			if( !$referrer ) {
 				$redirect_to = esc_url( home_url('/') );
 				return $redirect_to;
 			}
