@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: login, logout, redirect, redirection, sky login redirect
 Requires at least: 3.0
 Tested up to: 9.9
-Stable tag: 1.8
+Stable tag: 1.9
 License: GPLv2 or later
 
 Redirects to the page you were reading just before logging in. Redirects to the homepage when you log out.
@@ -25,6 +25,12 @@ More information can be found on [Sky Login Redirect Homepage](https://www.skymi
 Install and activate the plugin. You're done. No configuration necessary, it works under the hood.
 
 == Changelog ==
+
+= 1.9 =
+* June 15th 2015
+* Fix for the "undefined variable" (thanks nina9702 for reporting)
+* Tweak : streamlined the referrer function
+
 
 = 1.8 =
 * April 24th 2015
