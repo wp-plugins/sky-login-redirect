@@ -11,14 +11,14 @@ Redirects to the page you were reading just before logging in. Redirects to the 
 
 == Description ==
 
-[Sky Login Redirect](https://www.skyminds.net/wordpress-plugins/sky-login-redirect/ "Sky Login Redirect") redirects users to the page they were reading just before logging in.
+[Sky Login Redirect](https://www.skyminds.net/sky-login-redirect/ "Sky Login Redirect") redirects users to the page they were reading just before logging in.
 In case that page is not defined, users are redirected to the homepage.
 
 It also redirects user back to the homepage when they log out, instead of going to the login page again.
 
 No configuration necessary. Everything works under the hood. Simply activate the plugin.
 
-More information can be found on [Sky Login Redirect Homepage](https://www.skyminds.net/wordpress-plugins/sky-login-redirect/ "Sky Login Redirect Homepage").
+More information can be found on [Sky Login Redirect Homepage](https://www.skyminds.net/sky-login-redirect/ "Sky Login Redirect Homepage").
 
 == Installation ==
 

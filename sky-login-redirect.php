@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Sky Login Redirect
-Plugin URI: http://www.skyminds.net/wordpress-plugins/sky-login-redirect/
+Plugin URI: https://www.skyminds.net/sky-login-redirect/
 Description: Redirects users to the page they were reading just before logging in. Also redirects to homepage when logging out.
 Version: 1.9
 Author: Matt Biscay
-Author URI: http://www.skyminds.net/
+Author URI: https://www.skyminds.net/
 License: GPLv2 or later
 */
 
